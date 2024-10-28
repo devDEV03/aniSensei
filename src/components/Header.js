@@ -108,7 +108,7 @@ const Header = () => {
       </button>
 
       {user && (
-        <div className="p-2 mx-2 flex justify-between ">
+        <div className="p-2 mx-2 flex justify-between">
           {(searchView==='Movie'|| searchView==='AniSensei') && (
           <select className="bg-transparent text-white   px-2   rounded-lg font-bold" onChange={handleLanguageChange}>
             {SUPPORTED_LANGUAGES.map((lang) => (

@@ -1,7 +1,10 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { BrowserRouter, createBrowserRouter, RouterProvider } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import { MovieShimmer } from "./Shimmer";
 import DefaultShimmer from "./DefaultShimmer";
+import LoginShimmer from "./LoginShimmer";
+import StarredShimmer from "./StarredShimmer";
+import BrowserShimmer from "./BrowserShimmer";
 
 const Login  = lazy(() => import("./Login"));
 const Browse = lazy(() => import("./Browse"));
@@ -13,18 +16,18 @@ const Body = () => {
   const AppRouter = createBrowserRouter([
     {
       path: "/",
-      element: <Suspense fallback={<DefaultShimmer/>}><Login /></Suspense>,
+      element: <Suspense fallback={<LoginShimmer/>}><Login /></Suspense>,
     },
     {
       path: "/browse",
-      element: <Suspense fallback={<DefaultShimmer />}><Browse /></Suspense>,
+      element: <Suspense fallback={<BrowserShimmer />}><Browse/></Suspense>,
     },{
       path: "/starred",
-      element: <Suspense fallback={<DefaultShimmer />}><StarredMovies /></Suspense>,
+      element: <Suspense fallback={<StarredShimmer />}><StarredMovies /></Suspense>,
     }, 
     {
       path: "/movie/:id",
-      element: <Suspense fallback={<DefaultShimmer />}><Movie /></Suspense>,
+      element: <Suspense fallback={<MovieShimmer />}><Movie /></Suspense>,
     }
   ]);
 
