@@ -1,7 +1,6 @@
-import { BrowserRouter, createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import { MovieShimmer } from "./Shimmer";
-import DefaultShimmer from "./DefaultShimmer";
 import LoginShimmer from "./LoginShimmer";
 import StarredShimmer from "./StarredShimmer";
 import BrowserShimmer from "./BrowserShimmer";
