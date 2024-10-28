@@ -1,24 +1,29 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Browse from "./Browse";
-import Login from "./Login";
-import Movie from "./Movie";
-import StarredMovies from "./StarredMovies";
+import { lazy, Suspense } from "react";
+
+const Login  = lazy(() => import("./Login"));
+const Browse = lazy(() => import("./Browse"));
+const Movie  = lazy(() => import("./Movie"));
+const StarredMovies = lazy(() => import("./StarredMovies"));
+const Shimmer = lazy(() => import("./Shimmer"));
+
+
 const Body = () => {
   const AppRouter = createBrowserRouter([
     {
       path: "/",
-      element: <Login />,
+      element: <Suspense fallback={<Shimmer />}><Login /></Suspense>,
     },
     {
       path: "/browse",
-      element: <Browse />,
+      element: <Suspense fallback={<Shimmer />}><Browse /></Suspense>,
     },{
       path: "/starred",
-      element: <StarredMovies />,
+      element: <Suspense fallback={<Shimmer />}><StarredMovies /></Suspense>,
     }, 
     {
       path: "/movie/:id",
-      element: <Movie />,
+      element: <Suspense fallback={<Shimmer />}><Movie /></Suspense>,
     }
   ]);
 
