@@ -4,8 +4,8 @@ import { MovieShimmer } from "./Shimmer";
 import LoginShimmer from "./LoginShimmer";
 import StarredShimmer from "./StarredShimmer";
 import BrowserShimmer from "./BrowserShimmer";
+import Login from "./Login";
 
-const Login  = lazy(() => import("./Login"));
 const Browse = lazy(() => import("./Browse"));
 const Movie  = lazy(() => import("./Movie"));
 const StarredMovies = lazy(() => import("./StarredMovies"));
@@ -15,7 +15,7 @@ const Body = () => {
   const AppRouter = createBrowserRouter([
     {
       path: "/",
-      element: <Suspense fallback={<LoginShimmer/>}><Login /></Suspense>,
+      element: <Login />,
     },
     {
       path: "/browse",
