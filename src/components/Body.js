@@ -21,7 +21,7 @@ const Body = () => {
       element: <Suspense fallback={<BrowserShimmer />}><Browse/></Suspense>,
     },{
       path: "/starred",
-      element: <Suspense fallback={<StarredShimmer />}><StarredShimmer /></Suspense>,
+      element: <Suspense fallback={<StarredShimmer />}><StarredMovies /></Suspense>,
     }, 
     {
       path: "/movie/:id",
